@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skins</title>
+  <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <h1>Skins</h1>
+      </div>
+      <div class="nav-links">
+        <a href="#">Market</a>
+        <a href="#">Create listing</a>
+        <a href="#">Saved listings</a>
+        <a href="#">On Sale</a>
+        <a href="#">Trending</a>
+        <a href="#">Add funds</a>
+      </div>
+      <div class="user-actions">
+        <button id = "login-btn" class="login-btn">Log in</button>
+        <!-- <button class="signup-btn">Create Account</button> -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Search & Filter Section -->
+  <div class="filter-section">
+    <input type="text" class="search-bar" placeholder="Search market">
+    <div class="price-filter">
+      <input type="text" placeholder="From $5000">
+      <input type="text" placeholder="To">
+      <button class="refresh-btn">↻</button>
+    </div>
+    <div class="sort-filter">
+      <label for="sort">Sort by:</label>
+      <select id="sort">
+        <option>Recommended for you</option>
+        <option>Price: Low to High</option>
+        <option>Price: High to Low</option>
+        <option>Rarity</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Product Grid Section -->
+  <main>
+    <section class="product-grid">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/100" alt="Product">
+        <div class="product-info">
+          <p class="price">$6 199.00</p>
+          <p>FT 0.3635308</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/100" alt="Product">
+        <div class="product-info">
+          <p class="price">$11 836.73</p>
+          <p>ST FN 0.0284585</p>
+        </div>
+      </div>
+
+      <!-- Add more product cards as needed -->
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>Selected items (0)</p>
+    <button class="target-btn">Target | Bid</button>
+    <button class="buy-btn">Buy</button>
+  </footer>
+  <script src="homepage.js"></script>
+</body>
+</html>
