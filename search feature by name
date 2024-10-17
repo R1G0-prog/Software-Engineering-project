@@ -1,0 +1,16 @@
+const searchBar = document.querySelector('.search-bar');
+const productCards = document.querySelectorAll('.product-card');
+
+// Event listener for search input
+searchBar.addEventListener('input', function() {
+    const searchTerm = searchBar.value.toLowerCase(); // Get the search term and convert to lowercase
+
+    productCards.forEach(card => {
+        const productName = card.querySelector('.product-info').innerText.toLowerCase(); // Get product name and convert to lowercase
+        if (productName.includes(searchTerm)) {
+            card.style.display = 'block'; // Show the card if it matches
+        } else {
+            card.style.display = 'none'; // Hide the card if it doesn't match
+        }
+    });
+});
