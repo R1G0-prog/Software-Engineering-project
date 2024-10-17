@@ -1,0 +1,26 @@
+function sortProducts() {
+    const productGrid = document.getElementById('product-grid');
+    const products = Array.from(productGrid.getElementsByClassName('product-card'));
+    const sortValue = document.getElementById('sort').value;
+
+    // Sort products based on selected option
+    products.sort((a, b) => {
+        const priceA = parseFloat(a.dataset.price);
+        const priceB = parseFloat(b.dataset.price);
+        const rarityA = parseInt(a.dataset.rarity);
+        const rarityB = parseInt(b.dataset.rarity);
+
+        if (sortValue === 'priceLow') {
+            return priceA - priceB;
+        } else if (sortValue === 'priceHigh') {
+            return priceB - priceA;
+        } else if (sortValue === 'rarity') {
+            return rarityA - rarityB; // Change if higher rarity should come first
+        }
+        return 0; // Default case for recommended
+    });
+
+    // Clear and re-append sorted products
+    productGrid.innerHTML = '';
+    products.forEach(product => productGrid.appendChild(product));
+}
