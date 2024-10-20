@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace Listing Feature</title>
+    <link rel="stylesheet" href="createlisting.css">
+</head>
+<body>
+    <div id="create-listing-modal" class="modal">
+    <div class="container">
+        <span class="close-button" id="close-modal">&times;</span>
+        <h1>Create a Listing</h1>
+        <form id="listing-form">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
+
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" required>
+
+            <label for="type">Type:</label>
+            <select id="type" name="type" required>
+                <option value="knife">Knife</option>
+                <option value="gun">Gun</option>
+            </select>
+            <label for ="rarity">Rarity:</label>
+            <select id="rarity" name ="rarity" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+
+            <label for="category">Category:</label>
+            <select id="category" name="category" required>
+                <option value="Regular">Regular</option>
+                <option value="Custom">Custom</option>
+            </select>
+
+            <label for="image">Image:</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+
+            <button type="submit">Create Listing</button>
+        </form>
+
+        <h2>Skins</h2>
+        <div id="marketplace" class="marketplace"></div>
+    </div>
+
+    <script src="createlisting.js"></script>
+    <script>
+        document.getElementById('listing-form').addEventListener('submit', function(event) {
+          event.preventDefault();
+    
+          // Get form values
+          const title = document.getElementById('title').value;
+          const description = document.getElementById('description').value;
+          const price = document.getElementById('price').value;
+          const category = document.getElementById('category').value;
+          const type = document.getElementById('type').value;
+          const rarity = document.getElementById('rarity').value;
+          const image = document.getElementById('image').files[0];
+    
+          // Read image as base64
+          const reader = new FileReader();
+          reader.readAsDataURL(image);
+          reader.onload = function() {
+            const imageUrl = reader.result;
+    
+            // Create a listing object
+            const listing = {
+              title: title,
+              description: description,
+              price: price,
+              category: category,
+              type: type,
+              rarity: rarity,
+              imageUrl: imageUrl
+            };
+    
+            // Get existing listings from LocalStorage or initialize to empty array
+            let listings = JSON.parse(localStorage.getItem('listings')) || [];
+    
+            // Add the new listing to the array
+            listings.push(listing);
+    
+            // Store the updated listings array back to LocalStorage
+            localStorage.setItem('listings', JSON.stringify(listings));
+    
+            // Redirect to the homepage where the listings will be displayed
+            window.location.href = 'homepage.html';
+          };
+        });
+      </script>
+</body>
+</html>
