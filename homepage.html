@@ -1,81 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Skins</title>
-  <link rel="stylesheet" href="homepage.css">
-</head>
-<body>
-  <!-- Header Section -->
-  <header>
-    <div class="navbar">
-      <div class="logo">
-        <h1>Skins</h1>
-      </div>
-      <div class="nav-links">
-        <a href="#">Market</a>
-        <a href="#">Create listing</a>
-        <a href="#">Saved listings</a>
-        <a href="#">On Sale</a>
-        <a href="#">Trending</a>
-        <a href="#">Add funds</a>
-      </div>
-      <div class="user-actions">
-        <button id = "login-btn" class="login-btn">Log in</button>
-        <!-- <button class="signup-btn">Create Account</button> -->
-      </div>
-    </div>
-  </header>
-
-  <!-- Search & Filter Section -->
-  <div class="filter-section">
-    <input type="text" class="search-bar" placeholder="Search market">
-    <div class="price-filter">
-      <input type="text" placeholder="From $5000">
-      <input type="text" placeholder="To">
-      <button class="refresh-btn">↻</button>
-    </div>
-    <div class="sort-filter">
-      <label for="sort">Sort by:</label>
-      <select id="sort">
-        <option>Recommended for you</option>
-        <option>Price: Low to High</option>
-        <option>Price: High to Low</option>
-        <option>Rarity</option>
-      </select>
-    </div>
-  </div>
-
-  <!-- Product Grid Section -->
-  <main>
-    <section class="product-grid">
-      <div class="product-card">
-        <img src="https://via.placeholder.com/100" alt="Product">
-        <div class="product-info">
-          <p class="price">$6 199.00</p>
-          <p>FT 0.3635308</p>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <img src="https://via.placeholder.com/100" alt="Product">
-        <div class="product-info">
-          <p class="price">$11 836.73</p>
-          <p>ST FN 0.0284585</p>
-        </div>
-      </div>
-
-      <!-- Add more product cards as needed -->
-    </section>
-  </main>
-
-  <!-- Footer Section -->
-  <footer>
-    <p>Selected items (0)</p>
-    <button class="target-btn">Target | Bid</button>
-    <button class="buy-btn">Buy</button>
-  </footer>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skins</title>
+    <link rel="stylesheet" href="homepage.css" />
+  </head>
   <script src="homepage.js"></script>
-</body>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <div class="navbar">
+        <div class="logo">
+          <h1>Skins</h1>
+        </div>
+        <div class="nav-links">
+          <a href="#">Market</a>
+          <a href="#">Create listing</a>
+          <a href="#">Saved listings</a>
+          <a href="#">On Sale</a>
+          <a href="#">Trending</a>
+          <a href="#">Add funds</a>
+        </div>
+        <div class="user-actions">
+          <button id="login-btn" class="login-btn">Log in</button>
+          <!-- <button class="signup-btn">Create Account</button> -->
+        </div>
+      </div>
+    </header>
+
+    <!-- Search & Filter Section -->
+    <div class="filters-container">
+      <input type="text" class="search-bar" placeholder="Search market" />
+      <div class="price-filter">
+        <input type="text" placeholder="From $5000" />
+        <input type="text" placeholder="To" />
+        <button class="refresh-btn">↻</button>
+      </div>
+      <div class="sort-filter">
+        <label for="sort">Sort by:</label>
+        <select id="sort">
+          <option>Recommended for you</option>
+          <option>Price: Low to High</option>
+          <option>Price: High to Low</option>
+          <option>Rarity</option>
+        </select>
+      </div>
+      <div class="weapon-filter">
+        <label for="weapon-type">Weapon Type:</label>
+        <select id="weapon-type">
+          <option value="">All</option>
+          <option value="rifle">Rifle</option>
+          <option value="pistol">Pistol</option>
+          <option value="shotgun">Shotgun</option>
+          <option value="sniper">Sniper</option>
+          <option value="knife">Knife</option>
+        </select>
+      </div>
+      <div class="rarity-filter">
+        <label for="rarity">Rarity:</label>
+        <select id="rarity">
+          <option value="">All</option>
+          <option value="common">Common</option>
+          <option value="rare">Rare</option>
+          <option value="epic">Epic</option>
+          <option value="legendary">Legendary</option>
+        </select>
+      </div>
+    </div>
+
+    <!--Product Grid Section-->
+    <main>
+      <section class="product-grid">
+        <div class="product-card" data-weapon-type="rifle" data-rarity="epic">
+          <img
+            src="https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhjxszFJTwT09S5g4yCmfDLP7LWnn8f6pIl2-yYp9SnjA23-BBuNW-iLI-XJgFsZQyG_VW2lOq918e8uszLn2wj5HeAvkVdtQ/218x218"
+            alt="Product"
+          />
+          <div class="product-info">
+            <p class="price">$6 199.00</p>
+          </div>
+        </div>
+
+        <div
+          class="product-card"
+          data-weapon-type="pistol"
+          data-rarity="legendary"
+        >
+          <img
+            src="https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovrG1eVcwg8zLZAJSvteJkoySnvnzDL_Dk2pc18h0juDU-MKtjla1r0Q9N2mid4-QcwJtM1_Z_Fm5yejrgpK9usnNmCBmvyZz5n_ZgVXp1upvFaAH/218x218"
+            alt="Product"
+          />
+          <div class="product-info">
+            <p class="price">$11 836.73</p>
+          </div>
+        </div>
+
+        <div
+          class="product-card"
+          data-weapon-type="shotgun"
+          data-rarity="common"
+        >
+          <img
+            src="data:image/jpeg;base64,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"
+            alt="Product"
+          />
+          <div class="product-info">
+            <p class="price">$5 726.73</p>
+          </div>
+        </div>
+
+        <div class="product-card" data-weapon-type="sniper" data-rarity="rare">
+          <img
+            src="https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot621FAR17P7NdTRH-t26q4SZlvD7PYTQgXtu5Mx2gv2PrdSijAWwqkVtN272JIGdJw46YVrYqVO3xLy-gJC9u5vByCBh6ygi7WGdwUKTYdRD8A/218x218"
+            alt="Product"
+          />
+          <div class="product-info">
+            <p class="price">$2 548.67</p>
+          </div>
+        </div>
+
+        <div class="product-card" data-weapon-type="knife" data-rarity="common">
+          <img
+            src="https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0ebcZThQ6tCvq4GGqOT1I6vZn3lU18hwmOvN8IXvjVCLqSwwOj6rYJiTdQE7NQuEqFS7x7q9hpHovZrPmnpq6HJ24XmJzUDjgBpOarBug_fKVxzAUBpccViW/218x218"
+            alt="Product"
+          />
+          <div class="product-info">
+            <p class="price">$600.55</p>
+          </div>
+        </div>
+
+        <!-- Add more product cards as needed -->
+      </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+      <p>Selected items (0)</p>
+      <button class="target-btn">Target | Bid</button>
+      <button class="buy-btn">Buy</button>
+    </footer>
+    <script src="homepage.js"></script>
+  </body>
 </html>
