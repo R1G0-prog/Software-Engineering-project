@@ -1,133 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skins</title>
-    <link rel="stylesheet" href="homepage.css" />
-  </head>
-  <body>
+    <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
     <!-- Header Section -->
     <header>
-      <div class="navbar">
-        <div class="logo">
-          <h1>Skins</h1>
-        </div>
-        <div class="nav-links">
-          <a href="#">Market</a>
-          <a id="create-listing" href="#">Create listing</a>
-          <a href="#">Saved listings</a>
-          <a href="#">On Sale</a>
-          <a href="#">Trending</a>
-          <a href="#">Add funds</a>
-        </div>
-        <div class="user-actions">
-          <div class="profile-dropdown">
-            <button class="profile-icon">Account</button>
-            <div class="dropdown-content" id="dropdown-content">
-              <a id="login-btn" href="#">Login</a>
-              <a id="create-account-btn" href="#">Create Account</a>
+        <div class="navbar">
+            <div class="logo">
+                <h1>Skins</h1>
             </div>
-          </div>
+            <div class="nav-links">
+                <a href="#">Market</a>
+                <a id="create-listing" href="#">Create listing</a>
+                <a href="#">Saved listings</a>
+                <a href="#">On Sale</a>
+                <a href="#">Trending</a>
+                <a href="#">Add funds</a>
+            </div>
+            <div class="user-actions">
+                <div class="profile-dropdown">
+                    <button class="profile-icon">Account</button>
+                    <div class="dropdown-content" id="dropdown-content">
+                        <a id="login-btn" href="#">Login</a>
+                        <a id="create-account-btn" href="#">Create Account</a>
+                    </div>
+                </div>
+                <div class="cart-dropdown">
+                    <button class="cart-button">Cart</button>
+                    <div class="dropdown-content" id="cart-dropdown" style="display:none;"></div>
+                </div>
+            </div>
         </div>
-      </div>
     </header>
 
     <!-- Search & Filter Section -->
     <div class="filters-container">
-      <input type="text" class="search-bar" placeholder="Search market" />
-      <div class="price-filter">
-        <input type="text" placeholder="From" />
-        <input type="text" placeholder="To" />
-        <button class="refresh-btn">↻</button>
-      </div>
-      <div class="sort-filter">
-        <label for="sort">Sort by:</label>
-        <select id="sort">
-          <option value="recommended">Recommended for you</option>
-          <option value="priceLow">Price: Low to High</option>
-          <option value="priceHigh">Price: High to Low</option>
-          <option value="rarity">Rarity</option>
-        </select>
-      </div>
-      <div class="weapon-filter">
-        <label for="weapon-type">Weapon Type:</label>
-        <select id="weapon-type">
-          <option value="">All</option>
-          <option value="rifle">Rifle</option>
-          <option value="pistol">Pistol</option>
-          <option value="shotgun">Shotgun</option>
-          <option value="sniper">Sniper</option>
-          <option value="knife">Knife</option>
-        </select>
-      </div>
-      <div class="rarity-filter">
-        <label for="rarity">Rarity:</label>
-        <select id="rarity">
-          <option value="">All</option>
-          <option value="common">Common</option>
-          <option value="rare">Rare</option>
-          <option value="epic">Epic</option>
-          <option value="legendary">Legendary</option>
-        </select>
-      </div>
+        <input type="text" class="search-bar" placeholder="Search market" />
+        <div class="price-filter">
+            <input type="text" placeholder="From" />
+            <input type="text" placeholder="To" />
+            <button class="refresh-btn">↻</button>
+        </div>
+        <div class="sort-filter">
+            <label for="sort">Sort by:</label>
+            <select id="sort">
+                <option value="recommended">Recommended for you</option>
+                <option value="priceLow">Price: Low to High</option>
+                <option value="priceHigh">Price: High to Low</option>
+                <option value="rarity">Rarity</option>
+            </select>
+        </div>
+        <div class="weapon-filter">
+            <label for="weapon-type">Weapon Type:</label>
+            <select id="weapon-type">
+                <option value="">All</option>
+                <option value="rifle">Rifle</option>
+                <option value="pistol">Pistol</option>
+                <option value="shotgun">Shotgun</option>
+                <option value="sniper">Sniper</option>
+                <option value="knife">Knife</option>
+            </select>
+        </div>
+        <div class="rarity-filter">
+            <label for="rarity">Rarity:</label>
+            <select id="rarity">
+                <option value="">All</option>
+                <option value="common">Common</option>
+                <option value="rare">Rare</option>
+                <option value="epic">Epic</option>
+                <option value="legendary">Legendary</option>
+            </select>
+        </div>
     </div>
 
     <!-- Product Grid Section -->
     <main>
-      <section class="product-grid" id="marketplace">
-        <div class="product-card" data-weapon-type="rifle" data-rarity="epic" data-price="6199.00">
-          <img
-            src="https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhjxszFJTwT09S5g4yCmfDLP7LWnn8f6pIl2-yYp9SnjA23-BBuNW-iLI-XJgFsZQyG_VW2lOq918e8uszLn2wj5HeAvkVdtQ/218x218"
-            alt="Epic Rifle" />
-          <div class="product-info">
-            <p class="price">$6 199.00</p>
-          </div>
-        </div>
+        <section class="product-grid" id="marketplace">
+            <div class="product-card" data-weapon-type="rifle" data-rarity="epic" data-price="6199.00" onclick="goToProductPage('Epic Rifle', 'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhjxszFJTwT09S5g4yCmfDLP7LWnn8f6pIl2-yYp9SnjA23-BBuNW-iLI-XJgFsZQyG_VW2lOq918e8uszLn2wj5HeAvkVdtQ/218x218', 6199.00)">
+                <img src="https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhjxszFJTwT09S5g4yCmfDLP7LWnn8f6pIl2-yYp9SnjA23-BBuNW-iLI-XJgFsZQyG_VW2lOq918e8uszLn2wj5HeAvkVdtQ/218x218" alt="Epic Rifle" />
+                <div class="product-info">
+                    <p class="price">$6,199.00</p>
+                    <button class="buy-now" onclick="buyNowFromHomepage({title: 'Epic Rifle', price: 6199.00}); event.stopPropagation();">Buy Now</button>
+                </div>
+            </div>
 
-        <div class="product-card" data-weapon-type="pistol" data-rarity="legendary" data-price="11836.73">
-          <img
-            src="https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot621FAR17P7NdTRH-t26q4SZlvD7PYTQgXtu5Mx2gv2PrdSijAWwqkVtN272JIGdJw46YVrYqVO3xLy-gJC9u5vByCBh6ygi7WGdwUKTYdRD8A/218x218"
-            alt="Legendary Pistol" />
-          <div class="product-info">
-            <p class="price">$11 836.73</p>
-          </div>
-        </div>
+            <div class="product-card" data-weapon-type="sniper" data-rarity="legendary" data-price="11836.73" onclick="goToProductPage('Legendary Sniper', 'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot621FAR17P7NdTRH-t26q4SZlvD7PYTQgXtu5Mx2gv2PrdSijAWwqkVtN272JIGdJw46YVrYqVO3xLy-gJC9u5vByCBh6ygi7WGdwUKTYdRD8A/218x218', 11836.73)">
+                <img src="https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpot621FAR17P7NdTRH-t26q4SZlvD7PYTQgXtu5Mx2gv2PrdSijAWwqkVtN272JIGdJw46YVrYqVO3xLy-gJC9u5vByCBh6ygi7WGdwUKTYdRD8A/218x218" alt="Legendary Pistol" />
+                <div class="product-info">
+                    <p class="price">$11,836.73</p>
+                    <button class="buy-now" onclick="buyNowFromHomepage({title: 'Legendary Pistol', price: 11836.73}); event.stopPropagation();">Buy Now</button>
+                </div>
+            </div>
 
-        <div class="product-card" data-weapon-type="shotgun" data-rarity="common" data-price="5726.73">
-          <img src="https://i.imgur.com/3ripUog.png" alt="Common Shotgun" />
-          <div class="product-info">
-            <p class="price">$5 726.73</p>
-          </div>
-        </div>
+            <div class="product-card" data-weapon-type="shotgun" data-rarity="common" data-price="5726.73" onclick="goToProductPage('Common Shotgun', 'https://i.imgur.com/3ripUog.png', 5726.73)">
+                <img src="https://i.imgur.com/3ripUog.png" alt="Common Shotgun" />
+                <div class="product-info">
+                    <p class="price">$5,726.73</p>
+                    <button class="buy-now" onclick="buyNowFromHomepage({title: 'Common Shotgun', price: 5726.73}); event.stopPropagation();">Buy Now</button>
+                </div>
+            </div>
 
-        <div class="product-card" data-weapon-type="sniper" data-rarity="rare" data-price="2548.67">
-          <img
-            src="https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0ebcZThQ6tCvq4GGqOT1I6vZn3lU18hwmOvN8IXvjVCLqSwwOj6rYJiTdQE7NQuEqFS7x7q9hpHovZrPmnpq6HJ24XmJzUDjgBpOarBug_fKVxzAUBpccViW/218x218"
-            alt="Rare Sniper" />
-          <div class="product-info">
-            <p class="price">$2 548.67</p>
-          </div>
-        </div>
+            <div class="product-card" data-weapon-type="knife" data-rarity="rare" data-price="2548.67" onclick="goToProductPage('Rare Knife', 'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0ebcZThQ6tCvq4GGqOT1I6vZn3lU18hwmOvN8IXvjVCLqSwwOj6rYJiTdQE7NQuEqFS7x7q9hpHovZrPmnpq6HJ24XmJzUDjgBpOarBug_fKVxzAUBpccViW/218x218', 2548.67)">
+                <img src="https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0ebcZThQ6tCvq4GGqOT1I6vZn3lU18hwmOvN8IXvjVCLqSwwOj6rYJiTdQE7NQuEqFS7x7q9hpHovZrPmnpq6HJ24XmJzUDjgBpOarBug_fKVxzAUBpccViW/218x218" alt="Rare Knife" />
+                <div class="product-info">
+                    <p class="price">$2,548.67</p>
+                    <button class="buy-now" onclick="buyNowFromHomepage({title: 'Rare Knife', price: 2548.67}); event.stopPropagation();">Buy Now</button>
+                </div>
+            </div>
 
-        <div class="product-card" data-weapon-type="knife" data-rarity="common" data-price="600.55">
-          <img
-            src="https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovrG1eVcwg8zLZAJSvteJkoySnvnzDL_Dk2pc18h0juDU-MKtjla1r0Q9N2mid4-QcwJtM1_Z_Fm5yejrgpK9usnNmCBmvyZz5n_ZgVXp1upvFaAH/218x218"
-            alt="Common Knife" />
-          <div class="product-info">
-            <p class="price">$600.55</p>
-          </div>
-        </div>
-      </section>
+            <div class="product-card" data-weapon-type="pistol" data-rarity="common" data-price="600.55" onclick="goToProductPage('Common Pistol', 'https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovrG1eVcwg8zLZAJSvteJkoySnvnzDL_Dk2pc18h0juDU-MKtjla1r0Q9N2mid4-QcwJtM1_Z_Fm5yejrgpK9usnNmCBmvyZz5n_ZgVXp1upvFaAH/218x218', 600.55)">
+                <img src="https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovrG1eVcwg8zLZAJSvteJkoySnvnzDL_Dk2pc18h0juDU-MKtjla1r0Q9N2mid4-QcwJtM1_Z_Fm5yejrgpK9usnNmCBmvyZz5n_ZgVXp1upvFaAH/218x218" alt="Common Pistol" />
+                <div class="product-info">
+                    <p class="price">$600.55</p>
+                    <button class="buy-now" onclick="buyNowFromHomepage({title: 'Common Pistol', price: 600.55}); event.stopPropagation();">Buy Now</button>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer Section -->
     <footer>
-      <p>Selected items (0)</p>
-      <button class="target-btn">Target | Bid</button>
-      <button class="buy-btn">Buy</button>
+        <p>Selected items (0)</p>
+        <button class="target-btn">Target | Bid</button>
+        <button class="buy-btn">Buy</button>
     </footer>
 
     <script src="homepage.js"></script>
-  </body>
+</body>
 </html>
