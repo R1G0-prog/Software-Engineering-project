@@ -1,26 +1,33 @@
 document.getElementById("login-btn").addEventListener("click", function () {
   // Open a new window with the login form
-  window.open('login.html', '_blank', 'width=400,height=400');
+  window.open("login.html", "_blank", "width=400,height=400");
 });
 
-document.getElementById("create-listing").addEventListener("click", function () {
-  // Open a new window with the listing form
-  window.open('createlisting.html', '_blank', 'width=600,height=600');
-});
+document
+  .getElementById("create-listing")
+  .addEventListener("click", function () {
+    // Open a new window with the listing form
+    window.open("createlisting.html", "_blank", "width=600,height=600");
+  });
 
 document.querySelector(".profile-icon").addEventListener("click", function () {
   var dropdown = document.getElementById("dropdown-content");
-  dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+  dropdown.style.display =
+    dropdown.style.display === "block" ? "none" : "block";
 });
 
 // Function to open create account page in a new window
-document.getElementById("create-account-btn").addEventListener("click", function () {
-  // Open a new window with the create account form
-  window.open('createaccount.html', '_blank', 'width=400,height=400');
-});
+document
+  .getElementById("create-account-btn")
+  .addEventListener("click", function () {
+    // Open a new window with the create account form
+    window.open("createaccount.html", "_blank", "width=400,height=400");
+  });
 
 // Filter and Sort Functionality
-document.getElementById("weapon-type").addEventListener("change", filterProducts);
+document
+  .getElementById("weapon-type")
+  .addEventListener("change", filterProducts);
 document.getElementById("rarity").addEventListener("change", filterProducts);
 document.getElementById("sort").addEventListener("change", sortProducts);
 
@@ -47,9 +54,43 @@ function filterProducts() {
   });
 }
 
+// Add to Cart Function
+function addToCart(itemName, price) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.push({ name: itemName, price: price });
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert(`${itemName} has been added to your cart.`);
+  updateCartCount();
+}
+
+// Function to update the cart count bubble
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const count = cart.length;
+  const cartBubble = document.getElementById("cart-bubble");
+  const cartCount = document.getElementById("cart-count");
+
+  // Update both the bubble and footer count text
+  cartBubble.textContent = count;
+  cartCount.textContent = count;
+
+  // Show the bubble only if there are items in the cart
+  cartBubble.style.display = count > 0 ? "inline-block" : "none";
+}
+
+// Call updateCartCount on page load to display current count
+window.onload = updateCartCount;
+
+// View Cart Function
+function viewCart() {
+  window.location.href = "cart.html";
+}
+
 function sortProducts() {
   const productGrid = document.getElementById("marketplace");
-  const products = Array.from(productGrid.getElementsByClassName("product-card"));
+  const products = Array.from(
+    productGrid.getElementsByClassName("product-card")
+  );
   const sortValue = document.getElementById("sort").value;
 
   products.sort((a, b) => {

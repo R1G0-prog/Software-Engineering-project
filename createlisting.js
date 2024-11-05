@@ -1,57 +1,61 @@
 function initializeListingForm() {
-  document.getElementById('create-listing').addEventListener('click', function(event) {
-    event.preventDefault();
-    document.getElementById('create-listing-modal').style.display = 'block';
+  document
+    .getElementById("create-listing")
+    .addEventListener("click", function (event) {
+      event.preventDefault();
+      document.getElementById("create-listing-modal").style.display = "block";
+    });
+
+  document.getElementById("close-modal").addEventListener("click", function () {
+    document.getElementById("create-listing-modal").style.display = "none";
   });
 
-  document.getElementById('close-modal').addEventListener('click', function() {
-    document.getElementById('create-listing-modal').style.display = 'none';
-  });
+  document
+    .getElementById("listing-form")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
 
-  document.getElementById('listing-form').addEventListener('submit', function(event) {
-    event.preventDefault();
+      // Get form values
+      const title = document.getElementById("title").value;
+      const description = document.getElementById("description").value;
+      const price = document.getElementById("price").value;
+      const type = document.getElementById("type").value;
+      const rarity = document.getElementById("rarity").value;
+      const category = document.getElementById("category").value;
+      const image = document.getElementById("image").files[0];
 
-    // Get form values
-    const title = document.getElementById('title').value;
-    const description = document.getElementById('description').value;
-    const price = document.getElementById('price').value;
-    const type = document.getElementById('type').value;
-    const rarity = document.getElementById('rarity').value;
-    const category = document.getElementById('category').value;
-    const image = document.getElementById('image').files[0];
+      // Create a new listing object
+      const reader = new FileReader();
+      reader.readAsDataURL(image);
+      reader.onload = function () {
+        const imageUrl = reader.result;
 
-    // Create a new listing object
-    const reader = new FileReader();
-    reader.readAsDataURL(image);
-    reader.onload = function() {
-      const imageUrl = reader.result;
+        const listing = {
+          title: title,
+          description: description,
+          type: type,
+          rarity: rarity,
+          price: price,
+          category: category,
+          imageUrl: imageUrl,
+        };
 
-      const listing = {
-        title: title,
-        description: description,
-        type: type,
-        rarity: rarity,
-        price: price,
-        category: category,
-        imageUrl: imageUrl
+        // Display the listing in the marketplace
+        addListingToMarketplace(listing);
+
+        // Reset the form and close modal
+        document.getElementById("listing-form").reset();
+        document.getElementById("create-listing-modal").style.display = "none";
       };
-
-      // Display the listing in the marketplace
-      addListingToMarketplace(listing);
-
-      // Reset the form and close modal
-      document.getElementById('listing-form').reset();
-      document.getElementById('create-listing-modal').style.display = 'none';
-    };
-  });
+    });
 }
 
 // Function to add a listing to the marketplace
 function addListingToMarketplace(listing) {
-  const marketplace = document.querySelector('.product-grid');
+  const marketplace = document.querySelector(".product-grid");
 
-  const itemDiv = document.createElement('div');
-  itemDiv.classList.add('product-card');
+  const itemDiv = document.createElement("div");
+  itemDiv.classList.add("product-card");
 
   itemDiv.innerHTML = `
     <img src="${listing.imageUrl}" alt="${listing.title}">
@@ -65,4 +69,36 @@ function addListingToMarketplace(listing) {
   `;
 
   marketplace.appendChild(itemDiv);
+}
+
+// Add to Cart Function
+function addToCart(itemName, price) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.push({ name: itemName, price: price });
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert(`${itemName} has been added to your cart.`);
+  updateCartCount();
+}
+
+// Function to update the cart count bubble
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const count = cart.length;
+  const cartBubble = document.getElementById("cart-bubble");
+  const cartCount = document.getElementById("cart-count");
+
+  // Update both the bubble and footer count text
+  cartBubble.textContent = count;
+  cartCount.textContent = count;
+
+  // Show the bubble only if there are items in the cart
+  cartBubble.style.display = count > 0 ? "inline-block" : "none";
+}
+
+// Call updateCartCount on page load to display current count
+window.onload = updateCartCount;
+
+// View Cart Function
+function viewCart() {
+  window.location.href = "cart.html";
 }
