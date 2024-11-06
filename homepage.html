@@ -179,6 +179,32 @@
       </button>
       <button class="buy-btn">Buy</button>
     </footer>
+    <script>
+      // Load listings from LocalStorage
+      const listings = JSON.parse(localStorage.getItem("listings")) || [];
+
+      // Get the marketplace container
+      const marketplace = document.getElementById("marketplace");
+
+      // Loop through the listings and display them
+      listings.forEach((listing) => {
+        const itemDiv = document.createElement("div");
+        itemDiv.classList.add("product-card");
+
+        itemDiv.innerHTML = `
+          <img src="${listing.imageUrl}" alt="${listing.title}">
+          <div class="product-info">
+            <p class="price">$${parseFloat(listing.price).toFixed(2)}</p>
+            <p>Category: ${listing.category}</p>
+            <p>Type: ${listing.type}</p>
+            <p>Rarity: ${listing.rarity}</p>
+            <p>Description: ${listing.description}</p>
+          </div>
+        `;
+
+        marketplace.appendChild(itemDiv);
+      });
+    </script>
     <script src="homepage.js"></script>
   </body>
 </html>
