@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saved Listings</title>
+  <link rel="stylesheet" href="savedlisting.css">
+</head>
+<body>
+  <header>
+    <h1>Saved Listings</h1>
+  </header>
+  <main id="savedListingsContainer">
+    <section class="product-grid" id="marketplace">
+      <div class="product-card" style="display:none;">
+        <img src="https://via.placeholder.com/100" alt="Product">
+        <div class="save-icon-container">
+          <img src="/Images/favorite_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="Save" class="save-icon" onclick="saveListing('Product Titel', 'https://via.placeholder.com/100', 6199.00, 'Category', 'Type', 'Rarity 1', 'Description')">
+        </div>
+        <div class="product-info">
+          <p class="price">$6 199.00</p>
+          <p>Category:</p>
+          <p>Type:</p>
+          <p>Rarity 1</p>
+          <p>Description:</p>
+        </div>
+      </div>
+      </section>
+  </main>
+
+  <script>
+    function saveListing(title, imageUrl, price, category, type, rarity, description) {
+  // Retrieve saved listings from LocalStorage
+  let savedListings = JSON.parse(localStorage.getItem('savedListings')) || [];
+  
+  // Check if the listing already exists in saved listings
+  const listingIndex = savedListings.findIndex(listing => listing.title === title);
+
+  if (listingIndex !== -1) {
+    // Listing exists, remove it
+    savedListings.splice(listingIndex, 1);
+    alert(`${title} has been removed from saved listings.`);
+  } else {
+    // Listing does not exist, add it
+    savedListings.push({ title, imageUrl, price, category, type, rarity, description });
+    alert(`${title} has been added to saved listings.`);
+  }
+  
+  // Update localStorage
+  localStorage.setItem('savedListings', JSON.stringify(savedListings));
+  
+  // Reload saved listings to reflect changes
+  loadSavedListings();
+}
+
+// Function to load saved listings from localStorage
+function loadSavedListings() {
+  const container = document.getElementById('savedListingsContainer');
+  container.innerHTML = '';  // Clear existing listings
+
+  const savedListings = JSON.parse(localStorage.getItem('savedListings')) || [];
+
+  savedListings.forEach(listing => {
+    const itemDiv = document.createElement('div');
+    itemDiv.classList.add('product-card');
+    itemDiv.innerHTML = `
+      <img src="${listing.imageUrl}" alt="${listing.title}">
+      <div class="save-icon-container">
+        <img src="/Images/favorite_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="Save" class="save-icon" onclick="saveListing('${listing.title}', '${listing.imageUrl}', '${listing.price}', '${listing.category}', '${listing.type}', '${listing.rarity}', '${listing.description}')">
+      </div>
+      <div class="product-info">
+        <p class="price">$${parseFloat(listing.price).toFixed(2)}</p>
+        <p>Category: ${listing.category}</p>
+        <p>Type: ${listing.type}</p>
+        <p>Rarity: ${listing.rarity}</p>
+        <p>Description: ${listing.description}</p>
+      </div>
+    `;
+    container.appendChild(itemDiv);
+  });
+}
+
+// Load saved listings on page load
+document.addEventListener("DOMContentLoaded", loadSavedListings);
+
+  
+
+  </script>
+</body>
+</html>

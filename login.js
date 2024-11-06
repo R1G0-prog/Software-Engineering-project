@@ -14,7 +14,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
 
     try {
         // Call backend for authentication
-        const response = await fetch('http://localhost:5000/login', {
+        const response = await fetch('http://localhost:5500/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
