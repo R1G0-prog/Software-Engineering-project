@@ -130,3 +130,8 @@ body {
 .buy-now:hover {
     background-color: #218838; /* Darker green */
 }
+
+.logo img {
+    width: 210px; /* Adjust the width as needed */
+    height: auto; /* Maintains the aspect ratio */
+}

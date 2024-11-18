@@ -27,9 +27,16 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
         if (response.ok) {
             alert('Login successful!');
             errorMsg.style.display = 'none';
+            
+            // Save the token and user info
             localStorage.setItem('token', data.access_token);  // Save token for further requests
+            localStorage.setItem('user', JSON.stringify({
+                username: username,
+                email: data.email  // Assuming email is returned from the server
+            }));
+
             // Optionally redirect to another page
-            window.location.href = 'homepage.html';
+            window.location.href = 'homepage.html'; // Redirect to the homepage
         } else {
             errorMsg.textContent = data.message;
             errorMsg.style.display = 'block';
