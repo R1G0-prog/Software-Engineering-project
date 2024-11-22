@@ -17,15 +17,15 @@ For Python, open your computer's command prompt and enter the following lines:
 2. Run MySQL Configurator to set up localhost credentials
 
 3. Create a new database named 'marketplace' by executing the following code:
+	
+ 		CREATE DATABASE marketplace;
 
-CREATE DATABASE marketplace;
 
+5. Copy the code in the 'schema.sql' file, and execute it in your local instance query inside MySQL, to create a "user" table
 
-4. Copy the code in the 'schema.sql' file, and execute it in your local instance query inside MySQL, to create a "user" table
+6. Inside the 'backend' folder, open the app.py file with your code editor
 
-5. Inside the 'backend' folder, open the app.py file with your code editor
-
-6. On line 15, change the section that reads: "root:rick0645" to your own computer's localhost credentials 
+7. On line 15, change the section that reads: "root:rick0645" to your own computer's MySQL localhost credentials 
 
 (root is usually the user and is likely going to stay the same, and the password is created by the user during the MySQL [Configutaror] installation process)
 
