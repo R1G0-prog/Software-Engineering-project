@@ -33,23 +33,30 @@ For Python, open your computer's command prompt and enter the following lines:
 
 8. Go to the 'backend' file and copy the directory
 
-9. On the command prompt type: cd "paste-your-directory" (example: cd C:\Users\Henrique\Desktop\skins-marketplace-root\backend)
+9. On the command prompt type: 
 
-10. Set up a virtual environment by running the following command: python -m venv venv
+		cd "paste-your-directory" (example: cd C:\Users\Henrique\Desktop\skins-marketplace-root\backend)
 
-11. Start the virtual environment: venv\Scripts\activate
+10. Set up a virtual environment by running the following command: 
+
+		python -m venv venv
+
+11. Start the virtual environment: 
+
+		venv\Scripts\activate
 
 12. Install the requirements and extensions: pip install -r requirements.txt
 
-13. Run the Flask application: python app.py
+13. Run the Flask application:
+		
+  		python app.py
 
-14. Go to the 'frontend' folder and open the file named 'homepage.html' with your browser
+15. Go to the 'frontend' folder and open the file named 'homepage.html' with your browser
 
-15. (Optional) Inside MySQL run the following command if you wish to keep track of the current user database:
+16. (Optional) Inside MySQL run the following command if you wish to keep track of the current user database:
 
-USE marketplace;
+		USE marketplace;
+		SELECT * FROM user;
 
-SELECT * FROM user;
-
-16. To avoid any issues, make sure the MySQL localhost server is active and running by opening MySQL and checking the server status. If it is not running, initiate the local host and run the 'MySQL Configurator' to make sure it is active.
+17. To avoid any issues, make sure the MySQL localhost server is active and running by opening MySQL and checking the server status. If it is not running, initiate the local host and run the 'MySQL Configurator' to make sure it is active.
 
