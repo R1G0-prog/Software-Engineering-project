@@ -45,7 +45,9 @@ For Python, open your computer's command prompt and enter the following lines:
 
 		venv\Scripts\activate
 
-12. Install the requirements and extensions: pip install -r requirements.txt
+12. Install the requirements and extensions: 
+
+		pip install -r requirements.txt
 
 13. Run the Flask application:
 		
