@@ -5,9 +5,9 @@ MySQL Download Link -> https://dev.mysql.com/downloads/installer/
 
 For Python, open your computer's command prompt and enter the following lines:
 
-	1: curl -o python-installer.exe https://www.python.org/ftp/python/3.12.2/python-3.12.2-amd64.exe (download the Python installer)
+	1. Download the Python installer: curl -o python-installer.exe https://www.python.org/ftp/python/3.12.2/python-3.12.2-amd64.exe
 
-	2: python-installer.exe (run the installer)
+	2. Run the installer: python-installer.exe 
 
 	Important: During installation, select "Add Python to PATH" before proceeding.
 	You can run this command once done to confirm the installation is complete: python --version
