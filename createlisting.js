@@ -1,68 +1,48 @@
-function initializeListingForm() {
-  document.getElementById('create-listing').addEventListener('click', function(event) {
-    event.preventDefault();
-    document.getElementById('create-listing-modal').style.display = 'block';
-  });
+document.getElementById('listing-form').addEventListener('submit', function(event) {
+  event.preventDefault();
 
-  document.getElementById('close-modal').addEventListener('click', function() {
-    document.getElementById('create-listing-modal').style.display = 'none';
-  });
+  // Get form values
+  const title = document.getElementById('title').value;
+  const description = document.getElementById('description').value;
+  const price = parseFloat(document.getElementById('price').value).toFixed(2);
+  const type = document.getElementById('type').value;
+  const rarity = document.getElementById('rarity').value;
+  const image = document.getElementById('image').files[0];
 
-  document.getElementById('listing-form').addEventListener('submit', function(event) {
-    event.preventDefault();
+  // Validate form values
+  if (!title || !description || !price || !type || !rarity || !image) {
+      alert('Please fill in all fields.');
+      return;
+  }
 
-    // Get form values
-    const title = document.getElementById('title').value;
-    const description = document.getElementById('description').value;
-    const price = document.getElementById('price').value;
-    const type = document.getElementById('type').value;
-    const rarity = document.getElementById('rarity').value;
-    const category = document.getElementById('category').value;
-    const image = document.getElementById('image').files[0];
+  // Create a new FileReader to read the image file
+  const reader = new FileReader();
+  reader.onload = function(e) {
+      const imageUrl = e.target.result;
 
-    // Create a new listing object
-    const reader = new FileReader();
-    reader.readAsDataURL(image);
-    reader.onload = function() {
-      const imageUrl = reader.result;
-
+      // Create a listing object
       const listing = {
-        title: title,
-        description: description,
-        type: type,
-        rarity: rarity,
-        price: price,
-        category: category,
-        imageUrl: imageUrl
+          title,
+          description,
+          price,
+          type,
+          rarity,
+          imageUrl
       };
 
-      // Display the listing in the marketplace
-      addListingToMarketplace(listing);
+      // Retrieve existing listings from LocalStorage or initialize to an empty array
+      const listings = JSON.parse(localStorage.getItem('listings')) || [];
 
-      // Reset the form and close modal
-      document.getElementById('listing-form').reset();
-      document.getElementById('create-listing-modal').style.display = 'none';
-    };
-  });
-}
+      // Add the new listing to the array
+      listings.push(listing);
 
-// Function to add a listing to the marketplace
-function addListingToMarketplace(listing) {
-  const marketplace = document.querySelector('.product-grid');
+      // Save updated listings to LocalStorage
+      localStorage.setItem('listings', JSON.stringify(listings));
 
-  const itemDiv = document.createElement('div');
-  itemDiv.classList.add('product-card');
+      // Redirect to homepage
+      window.location.href = 'homepage.html';
+  };
 
-  itemDiv.innerHTML = `
-    <img src="${listing.imageUrl}" alt="${listing.title}">
-    <div class="product-info">
-      <p class="price">$${listing.price}</p>
-      <p>Category: ${listing.category}</p>
-      <p>Type: ${listing.type}</p>
-      <p>Rarity: ${listing.rarity}</p>
-      <p>Description: ${listing.description}</p>
-    </div>
-  `;
-
-  marketplace.appendChild(itemDiv);
-}
+  // Read the image file as a data URL
+  reader.readAsDataURL(image);
+});

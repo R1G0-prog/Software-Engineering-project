@@ -14,7 +14,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
 
     try {
         // Call backend for authentication
-        const response = await fetch('http://localhost:5000/login', {
+        const response = await fetch('http://localhost:5000/api/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -27,7 +27,13 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
         if (response.ok) {
             alert('Login successful!');
             errorMsg.style.display = 'none';
-            localStorage.setItem('token', data.token);  // Save token for further requests
+            
+            // Save the token and user info
+            localStorage.setItem('token', data.access_token);  // Save token for further requests
+            localStorage.setItem('user', JSON.stringify(data.user)); // Save the user object (username & email)
+
+            // Optionally redirect to another page
+            window.location.href = 'homepage.html'; // Redirect to the homepage
         } else {
             errorMsg.textContent = data.message;
             errorMsg.style.display = 'block';
