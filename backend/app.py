@@ -14,7 +14,7 @@ def create_app():
     # Configure the app
     app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:rick0645@localhost/marketplace'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY')
+    app.config['JWT_SECRET_KEY'] = 'skins_marketplace'
 
     # Initialize extensions
     db.init_app(app)
