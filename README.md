@@ -29,6 +29,10 @@ For Python, open your computer's command prompt and enter the following lines:
 
 (root is usually the user and is likely going to stay the same, and the password is created by the user during the MySQL [Configutaror] installation process)
 
+For example, if you set your MySQL Server password to "password123" that line should look like this (assuming "root" is still set as the user value):
+
+		root:rick0645
+
 7. Open your computer's command prompt
 
 8. Go to the 'backend' folder and copy the directory
