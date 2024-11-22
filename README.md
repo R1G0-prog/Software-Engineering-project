@@ -10,7 +10,7 @@ For Python, open your computer's command prompt and enter the following lines:
 	2. Run the installer: python-installer.exe 
 
 	Important: During installation, select "Add Python to PATH" before proceeding.
-	You can run this command once done to confirm the installation is complete: python --version
+	You can run the following command once done to confirm the installation is complete: python --version
 
 	
 
