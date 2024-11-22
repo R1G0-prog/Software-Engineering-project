@@ -31,7 +31,7 @@ For Python, open your computer's command prompt and enter the following lines:
 
 7. Open your computer's command prompt
 
-8. Go to the 'backend' file and copy the directory
+8. Go to the 'backend' folder and copy the directory
 
 9. On the command prompt type: 
 
@@ -53,7 +53,7 @@ For Python, open your computer's command prompt and enter the following lines:
 		
   		python app.py
 
-15. Go to the 'frontend' folder and open the file named 'homepage.html' with your browser
+15. Go back to the main folder ("Software-Engineering-project-main") and open the file named 'homepage.html' with your browser
 
 16. (Optional) Inside MySQL run the following command if you wish to keep track of the current user database:
 
