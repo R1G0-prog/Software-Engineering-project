@@ -31,7 +31,7 @@ For Python, open your computer's command prompt and enter the following lines:
 
 For example, if you set your MySQL Server password to "password123" that line should look like this (assuming "root" is still set as the user value):
 
-		root:rick0645
+		app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:password123@localhost/ma
 
 7. Open your computer's command prompt
 
